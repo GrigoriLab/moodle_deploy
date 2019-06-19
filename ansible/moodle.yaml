@@ -1,0 +1,11 @@
+---
+
+- name: Deploy Moodle to the server
+  hosts: moodle_ip
+  become: True
+  gather_facts: False
+  serial: 1
+  roles:
+    - role: pre_configure
+    - role: configure
+    - role: moodle_run
