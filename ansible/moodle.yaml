@@ -1,11 +1,18 @@
 ---
 
-- name: Deploy Moodle to the server
+- name: Preconfiguration of the instance
   hosts: moodle_ip
   become: True
   gather_facts: False
   serial: 1
   roles:
     - role: pre_configure
+
+- name: Deploy Moodle to the server
+  hosts: moodle_ip
+  become: True
+  gather_facts: True
+  serial: 1
+  roles:
     - role: configure
     - role: moodle_run
