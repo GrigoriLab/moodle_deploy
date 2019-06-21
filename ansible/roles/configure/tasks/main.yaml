@@ -5,14 +5,8 @@
   become: yes
   become_user: root
   with_items:
-    - libcurl4-openssl-dev
     - python-pip
-    - build-essential
     - python-dev
-    - python-setuptools
-    - memcached
-    - libpq-dev
-    - git
   tags: 
     - configure 
     - deploy-all
@@ -21,10 +15,6 @@
     name:
             #- docker
       - docker-py
-      - urllib3
-      - pyOpenSSL
-      - ndg-httpsclient
-      - pyasn1
   tags:
     - configure
     - docker
